@@ -1,0 +1,190 @@
+/* General reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .bus-search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 93vh;
+  }
+  
+  .bus-search-box {
+    background-color: #fff;
+    width: 90%; /* Use percentage for responsiveness */
+    max-width: 400px; /* Prevent it from growing too large */
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 5vh; /* Push down slightly on larger screens */
+  }
+  
+  h1 {
+    color: #5a4af4;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  .input-group .icon {
+    font-size: 1.2rem;
+  }
+  
+  .input-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .swap-icon {
+    font-size: 1.5rem;
+    color: #5a4af4;
+    margin: 10px 0;
+  }
+  
+  .date-picker {
+    display: flex;
+    flex-wrap: wrap; /* Adjust buttons for smaller screens */
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .date-picker input,
+  .date-picker button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+  
+  .date-picker button {
+    background-color: #5a4af4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .date-picker button:hover {
+    background-color: #4a3acf;
+  }
+  
+  .search-button {
+    background-color: #5a4af4;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #4a3acf;
+  }
+  .contact{
+    color: white;
+  }
+  
+  /* Footer styles
+  footer {
+    background-color: #5a4af4;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    width: 100%;
+    height:50px;
+  }
+  
+  footer p {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  footer p:hover {
+    text-decoration: underline;
+  }
+  
+  .social-icons a {
+    font-size: 1.2rem;
+    margin: 0 5px;
+  } */
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .bus-search-box {
+      width: 95%; /* Make box slightly smaller on smaller screens */
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .input-group input {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    .date-picker button,
+    .date-picker input {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+    }
+  
+    .search-button {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    footer {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .bus-search-box {
+      width: 100%; /* Use full width for very small screens */
+      box-shadow: none; /* Remove shadow for a cleaner look */
+      margin-top: 0; /* Top margin removed */
+      border-radius: 0; /* Square corners for full width */
+    }
+  
+    h1 {
+      font-size: 1.2rem;
+    }
+  
+    .input-group {
+      flex-direction: column; /* Stack input fields vertically */
+      gap: 5px;
+    }
+  
+    .date-picker {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    footer {
+      font-size: 0.7rem;
+    }
+  }
+  

@@ -1,0 +1,18 @@
+.footer{
+    background-color: #5a4af4;
+    text-align: center;
+    width: 98vw;
+    height: 50px;
+}
+.footer p {
+    color: white;
+    text-decoration: none;
+    margin: 0 auto;
+}
+.footer .rights{
+    color: white;
+}
+
+.footer p:hover {
+text-decoration: underline;
+}
