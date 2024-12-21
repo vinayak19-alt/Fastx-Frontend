@@ -1,0 +1,89 @@
+.container {
+    background-color: #f4f7fc;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2.text-center {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table thead {
+    background-color: #4338CA;
+    color: white;
+    text-align: left;
+  }
+  
+  .table th, .table td {
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .table td {
+    color: #555;
+  }
+  
+  .table th {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .table td:nth-child(7) {
+    color: #4CAF50; /* Price in green */
+    font-weight: bold;
+  }
+  
+  .table td:nth-child(9) {
+    color: #f44336; /* Seats in red */
+  }
+  
+  .table th, .table td {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table td {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+  }
+  
+  .table thead th {
+    background-color: #2d3e50;
+    color: white;
+  }
+  
+  .table td {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table td:hover {
+    background-color: #f1f1f1;
+  }
+  

@@ -1,0 +1,19 @@
+/* Align button to center of its column */
+.action-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Oval-shaped button styling */
+.custom-btn {
+    border-radius: 25px;
+    padding: 5px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Add hover effect */
+.custom-btn:hover {
+    background-color: #c82333; /* Darker red */
+    transform: scale(1.05);
+}

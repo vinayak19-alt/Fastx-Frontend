@@ -16,3 +16,6 @@
 .footer p:hover {
 text-decoration: underline;
 }
+.nav-container{
+    width: 10000px;
+}

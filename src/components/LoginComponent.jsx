@@ -28,7 +28,13 @@ export const LoginComponent = () => {
             // setAuth({accessToken, username, role})
             setAuth(response.data)
             console.log("Got access token ", response.data.accessToken)
-            navigate("/bus-search", {state:{username:user}})
+            if(role === "ROLE_USER"){
+                navigate("/bus-search", {state:{username:user}})
+            }else if(role === "ROLE_OPERATOR"){
+                navigate("/operator-dashboard", {state:{username:user}})
+            }else if(role === "ROLE_ADMIN"){
+                navigate("/admin-dashboard", {state:{username:user}})
+            }
         }).catch((error)=>{
             console.error('Error occurred while calling Login API:', error)
             if (!error?.response) {

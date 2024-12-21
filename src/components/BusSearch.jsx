@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './BusSearch.css'
 import UserService from '../service/UserService';
 import AuthContext from '../context/AuthProvider';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CustomNavbar from './navbar/CustomNavbar';
 
 const cities = [
@@ -20,6 +20,8 @@ export const BusSearch = () => {
     const [destinationCity, setDestinationCity] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
     const {auth} = useContext(AuthContext)
+    const navigate = useNavigate()
+    cities.sort()
 
     // useEffect(()=>{
 
@@ -28,33 +30,29 @@ export const BusSearch = () => {
     const searchBus = () => {
         // e.preventDefault()
         console.log("Received Date: ",selectedDate, " Source: ", sourceCity, " Destination: ", destinationCity)
-        UserService.selectJourney(selectedDate, sourceCity, destinationCity, auth.accessToken).then((response)=>{
-            console.log("Received response from SelectJourney API ", response.data)
-        }).catch((error)=>{
-            console.log("Error occurred by SelectJorney API ", error)
-            if(error.response?.status === 404){
-                <div>{error.response.data.message}</div>
-            }
-        })
+        navigate('/select-bus', {state:{date:selectedDate, source:sourceCity, destination:destinationCity, username:username}})
     };
 
   return (
+    <div>
+      <div className='nabvar-component'>
+      <CustomNavbar username={username}/>
+      </div>
     <div className="bus-search-container">
         {/* <h2>Hello {username}</h2> */}
-        <CustomNavbar/>
       {/* Main Search Box */}
       <div className="bus-search-box">
         <h1>FastX</h1>
 
         {/* Source City */}
         <div className="input-group">
-          <label htmlFor="sourceCity">Source City</label>&nbsp;&nbsp;&nbsp;
+          <label htmlFor="sourceCity">Source City</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <select className='down-centered'
             id="sourceCity"
             value={sourceCity}
             onChange={(e) => setSourceCity(e.target.value)}
           >
-            <option value="" disabled>Select Source City</option>
+            <option value="" disabled>Select City</option>
             {cities.map((city, index) => (
               <option key={index} value={city}>{city}</option>
             ))}
@@ -72,7 +70,7 @@ export const BusSearch = () => {
             value={destinationCity}
             onChange={(e) => setDestinationCity(e.target.value)}
           >
-            <option value="" disabled>Select Destination City</option>
+            <option value="" disabled>Select City</option>
             {cities.map((city, index) => (
               <option key={index} value={city}>{city}</option>
             ))}
@@ -109,6 +107,7 @@ export const BusSearch = () => {
         </div>
         <div className='rights'>© 2024 FastX. All rights reserved.</div>
       </footer>
+    </div>
     </div>
   );
 }

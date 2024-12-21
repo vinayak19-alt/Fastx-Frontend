@@ -1,70 +1,146 @@
 import React from 'react';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is imported
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import { Link } from 'react-router-dom';
+import "./CustomNavbar.css"
 
-function CustomNavbar() {
+function CustomNavbar(props) {
+  const username = props.username;
+
   return (
-    <Navbar expand="lg" style={styles.navbar} variant="dark">
-      <Container>
-        {/* Brand Logo */}
-        <Navbar.Brand href="#home" style={styles.brand}>
+    // <div className='navbar'>
+    // <Navbar expand="lg" variant="light" className='custom-navbar'>
+    //   <Container className='navbar-container'>
+    //     {/* Brand Logo */}
+    //     <Navbar.Brand href="#home" style={{
+    //       display: 'flex',
+    //       alignItems: 'center',
+    //       color: 'blue',
+    //       textDecoration: 'none'
+    //     }}>
+    //       <img
+    //         src="https://img.icons8.com/ios-filled/50/ffffff/bus.png" 
+    //         alt="logo"
+    //         width="40"
+    //         height="40"
+    //         className="d-inline-block align-top"
+    //         style={{
+    //           marginRight: '10px'
+    //         }}
+    //       />{' '}
+    //       <span style={{
+    //         fontSize: '1.5rem',
+    //         fontWeight: 'bold'
+    //       }}>FastX</span>
+    //     </Navbar.Brand>
+
+    //     {/* Navbar Toggle for Mobile */}
+    //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+    //     {/* Navbar Links */}
+    //     <Navbar.Collapse id="basic-navbar-nav">
+    //       <Nav className="ms-auto"> {/* Align nav items to the right */}
+    //         <Link
+    //           to="/my-bookings"
+    //           state={{ username: props.username }}
+    //           className="nav-link"
+    //           style={{
+    //             color: '#fff',
+    //             padding: '0.5rem 1rem',
+    //             textDecoration: 'none',
+    //             '&:hover': {
+    //               color: '#e3f2fd'
+    //             }
+    //           }}
+    //         >
+    //           My Bookings
+    //         </Link>
+            
+    //       </Nav>
+    //       {/* Signed in User Info */}
+    //       <Navbar.Text style={{
+    //         color: '#fff',
+    //         marginLeft: '1rem'
+    //       }}>
+    //         Signed in as: <span style={{
+    //           fontWeight: 'bold'
+    //         }}>{username}</span>
+    //       </Navbar.Text>
+    //     </Navbar.Collapse>
+    //   </Container>
+    // </Navbar>
+    // </div>
+    <Navbar className="bg-body-tertiary custom-navbar" fixed="top" style={{
+      width: '100%',
+      backgroundColor: '#000000', 
+      padding: '0.5rem 1rem',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000,
+      color:"#5A4AF4"
+    }}>
+      <Container style={{
+        width: '100%',
+        maxWidth: '100%',
+        margin: '0',
+        padding: '0 2rem',
+        color:"#5A4AF4",
+        backgroundColor: '#5A4AF4' 
+      }}>
+        <Navbar.Brand href="#home" style={{ 
+          fontWeight: 'bold', 
+          fontSize: '1.5rem', 
+          color: 'white',
+          marginLeft: 0,
+          display: 'flex',
+          alignItems: 'center'
+        }}>
           <img
-            src="https://img.icons8.com/ios-filled/50/ffffff/bus.png" // Replace with your logo
+            src="https://img.icons8.com/ios-filled/50/ffffff/bus.png"
             alt="logo"
-            width="30"
-            height="30"
+            width="40"
+            height="40"
             className="d-inline-block align-top"
-          />{' '}
+            style={{ marginRight: '10px', color:"white" }}
+          />
           FastX
         </Navbar.Brand>
-
-        {/* Navbar Toggle for Mobile */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-        {/* Navbar Links */}
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto"> {/* Align nav items to the right */}
-            <Nav.Link href="#bookings" style={styles.link}>My Bookings</Nav.Link>
-            <NavDropdown title="More" id="basic-nav-dropdown" style={styles.link}>
-              <NavDropdown.Item href="#action/3.1">Contact Us</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">FAQs</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Privacy Policy</NavDropdown.Item>
-            </NavDropdown>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" style={{
+          backgroundColor: 'white'
+        }}/>
+        <Navbar.Collapse className="justify-content-end">
+          <Nav className="me-auto">
+            <Link
+              to="/my-bookings"
+              state={{ username: username }}
+              className="nav-link"
+              style={{
+                color: 'white',
+                padding: '0.5rem 1rem',
+                textDecoration: 'none'
+              }}
+            >
+              My Bookings
+            </Link>
           </Nav>
-          {/* Signed in User Info */}
-          <Navbar.Text style={styles.signedIn}>
-            Signed in as: <a href="#profile" style={styles.userLink}></a>
+          <Navbar.Text style={{ 
+            color: '#FFFFFF', 
+            marginRight: 0 
+          }}><Link to="/user-details">
+            Signed in as: <span style={{ 
+              color: 'white', 
+              textDecoration: 'none',
+              fontWeight: 'bold',
+            }}>{username}</span>
+            </Link>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
-
-// Inline Custom Styles
-const styles = {
-  navbar: {
-    backgroundColor: '#5A67D8', // Custom Navbar background color
-    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-  },
-  brand: {
-    fontWeight: 'bold',
-    fontSize: '1.5rem',
-  },
-  link: {
-    color: 'white',
-    fontWeight: '500',
-    marginRight: '15px',
-  },
-  signedIn: {
-    color: '#D1D5DB',
-    marginLeft: '15px',
-  },
-  userLink: {
-    color: '#E9EAEC',
-    textDecoration: 'underline',
-  },
-};
 
 export default CustomNavbar;

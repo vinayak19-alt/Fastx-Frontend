@@ -1,0 +1,33 @@
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+}
+
+
+.custom-btn {
+    border-radius: 25px;
+    padding: 5px 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+
+.custom-btn.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.custom-btn.btn-info:hover {
+    background-color: #138496; 
+    border-color: #117a8b;
+}
+
+
+.custom-btn.btn-danger:hover {
+    background-color: #c82333; 
+    border-color: #bd2130;
+}

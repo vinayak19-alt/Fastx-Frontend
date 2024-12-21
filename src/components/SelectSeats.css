@@ -1,0 +1,131 @@
+.bus-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bus-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .bus-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .driver-area {
+    height: 60px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .seats-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .seat-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .seat-row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .seat {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .seat.available {
+    background-color: #3b82f6;
+  }
+  
+  .seat.selected {
+    background-color: #22c55e;
+  }
+  
+  .seat.booked {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  .seat:hover:not(.booked) {
+    opacity: 0.8;
+  }
+  
+  .aisle {
+    width: 30px;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 14px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+  
+  .booking-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .seat-info {
+    font-size: 18px;
+  }
+  
+  .book-button {
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .book-button:hover {
+    background-color: #2563eb;
+  }
+  
+  .book-button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+
+  .seat.booked {
+    background-color: #ff4d4d; /* Red color for booked seats */
+    cursor: not-allowed;
+  }
+  

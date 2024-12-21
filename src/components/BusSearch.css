@@ -4,12 +4,15 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
   }
+  .navbar-component{
+    width: 400px;
+  }
   
   .bus-search-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 93vh;
+    height: 79vh;
   }
   
   .bus-search-box {
