@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './SaveUser.css'
 import UserService from '../service/UserService'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export const SaveUserComponent = () => {
     const location = useLocation();
@@ -12,15 +13,18 @@ export const SaveUserComponent = () => {
     const [phone, setPhone]=useState('')
     const [email, setEmail]=useState('')
     const navigate = useNavigate()
+    const notify = () => toast("You have added the information successfully")
 
     const saveUser = (e) =>{
         e.preventDefault()
         const userInfo = {name, age, gender, phone, username, email}
         UserService.saveUserInfo(userInfo).then((response)=>{
             console.log("Response recived from SaveUser API ", response.data)
+            notify();
             navigate("/login")
         }).catch((error)=>{
             console.log("Error thrown by SaveUser API ",error)
+            toast.error("Some error ocurred, Please try again")
         })
     }
   return (

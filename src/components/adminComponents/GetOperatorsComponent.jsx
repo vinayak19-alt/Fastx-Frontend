@@ -68,7 +68,7 @@ export const GetOperatorsComponent = () => {
                 </tr>))}
             </tbody>
         </table>
-        <button className="btn btn-danger custom-btn addop-btn" onClick={(e)=>{handleAddOperator(e)}}>Add Operator</button>
+        <button className="btn btn-danger addop-btn" onClick={(e)=>{handleAddOperator(e)}}>Add Operator</button>
     </div>
   )
 }

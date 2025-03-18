@@ -45,40 +45,44 @@ const SelectBusComponent = () => {
         Select The Bus
       </h2>
       <Row>
-        {buses.map((bus) => (
+        {buses.filter((bus) => {
+          const busDepartDateTime = new Date(`${bus.departDate}T${bus.departTime}`);
+          const currentTime = new Date();
+          return busDepartDateTime > currentTime;
+        }).map((bus) => (
           <Col lg={12} className="mb-4" key={bus.id}>
-            <Card style={styles.card} className="shadow-sm">
-              <Card.Body>
-                <Row>
-                  <Col md={8}>
-                    <h5 style={{ fontWeight: "bold" }}>Bus Type:{bus.busType}<br></br> Bus Number:{bus.busNumber}</h5>
-                    <p>
-                      <FaLocationArrow className="me-2" />
-                      {bus.source} to {bus.destination} | {bus.departDate}
-                    </p>
-                    <p>
-                      <FaClock className="me-2" />
-                      Departure: {bus.departTime} | Arrival: {bus.arrTime} | seats: {bus.seats}
-                    </p>
-                  </Col>
-                  <Col md={4} className="text-end">
-                    <div style={styles.ratingBox}>
-                      <span style={{ fontWeight: "bold", color: "#28a745" }}>
-                        {bus.rating}
-                      </span>{" "}
-                      <span style={styles.voteCount}>({bus.votes} votes)</span>
-                    </div>
-                    <h4 style={{ fontWeight: "bold" }}>
-                      <FaRupeeSign /> {bus.price}.00
-                    </h4>
-                    <button variant="primary" style={styles.button} onClick={()=>handleBookNow(bus)}>
-                      Book Now
-                    </button>
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
-          </Col>
+          <Card style={styles.card} className="shadow-sm">
+            <Card.Body>
+              <Row>
+                <Col md={8}>
+                  <h5 style={{ fontWeight: "bold" }}>Bus Type:{bus.busType}<br></br> Bus Number:{bus.busNumber}</h5>
+                  <p>
+                    <FaLocationArrow className="me-2" />
+                    {bus.source} to {bus.destination} | {bus.departDate}
+                  </p>
+                  <p>
+                    <FaClock className="me-2" />
+                    Departure: {bus.departTime} | Arrival: {bus.arrTime} | seats: {bus.seats}
+                  </p>
+                </Col>
+                <Col md={4} className="text-end">
+                  <div style={styles.ratingBox}>
+                    <span style={{ fontWeight: "bold", color: "#28a745" }}>
+                      {bus.rating}
+                    </span>{" "}
+                    <span style={styles.voteCount}>({bus.votes} votes)</span>
+                  </div>
+                  <h4 style={{ fontWeight: "bold" }}>
+                    <FaRupeeSign /> {bus.price}.00
+                  </h4>
+                  <button variant="primary" style={styles.button} onClick={()=>handleBookNow(bus)}>
+                    Book Now
+                  </button>
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
+        </Col>
         ))}
       </Row>
     </Container>

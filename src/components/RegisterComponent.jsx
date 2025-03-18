@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './register.css'
 import UserService from '../service/UserService'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const USER_REGEX=/^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/
 const PSWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
@@ -29,6 +30,7 @@ export const RegisterComponent = () => {
     const [success, setSuccess]=useState(false)
 
     const navigate = useNavigate()
+    const notify = () => toast("You are registered successfully!")
 
     const saveUserRegistration = (e)=>{
         e.preventDefault()
@@ -40,6 +42,7 @@ export const RegisterComponent = () => {
         UserService.registerUser(userData).then((response)=>{
             console.log("Response received from Register API ", response.data)
             setSuccess(true)
+            notify();
             navigate("/add-info", {state:{username:user}})
         }).catch((error)=>{
             console.log("Error received from Register API ", error)

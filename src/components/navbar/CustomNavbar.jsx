@@ -1,11 +1,19 @@
 import React from 'react';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./CustomNavbar.css"
 
 function CustomNavbar(props) {
   const username = props.username;
+  const navigate = useNavigate()
+
+  // Logout Function
+  const handleLogout = () => {
+    sessionStorage.clear(); // Clear session data
+    navigate("/login");
+    window.location.reload()
+  };
 
   return (
     // <div className='navbar'>
@@ -90,7 +98,7 @@ function CustomNavbar(props) {
         color:"#5A4AF4",
         backgroundColor: '#5A4AF4' 
       }}>
-        <Navbar.Brand href="#home" style={{ 
+        <Navbar.Brand style={{ 
           fontWeight: 'bold', 
           fontSize: '1.5rem', 
           color: 'white',
@@ -129,14 +137,22 @@ function CustomNavbar(props) {
           <Navbar.Text style={{ 
             color: '#FFFFFF', 
             marginRight: 0 
-          }}><Link to="/user-details">
+          }}>
             Signed in as: <span style={{ 
               color: 'white', 
               textDecoration: 'none',
               fontWeight: 'bold',
-            }}>{username}</span>
-            </Link>
+            }}>{username}</span>&nbsp;&nbsp;
           </Navbar.Text>
+          {/* Logout Text Button */}
+          <span 
+            onClick={handleLogout} 
+            style={{
+              color: '#FFFFFF', 
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              fontWeight: 'bold'
+            }}>Logout</span>
         </Navbar.Collapse>
       </Container>
     </Navbar>

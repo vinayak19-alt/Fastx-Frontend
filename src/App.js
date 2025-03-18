@@ -24,6 +24,7 @@ import { GetUsersComponent } from './components/adminComponents/GetUsersComponen
 import { RegisterOperatorComponent } from './components/adminComponents/RegisterOperatorComponent';
 import { AddOperatorComponent } from './components/adminComponents/AddOperatorComponent';
 import { UpdateOperatorComponent } from './components/adminComponents/UpdateOperatorComponent';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path='/register' element={<RegisterComponent/>}/>
           <Route path='/add-info' element={<SaveUserComponent/>}/>
           <Route path='/login' element={<LoginComponent/>}/>
+          <Route path='/welcome' element={<LandingPage/>}/>
           <Route element={<RequireAuth/>}>
             <Route path='/bus-search' element={<BusSearch/>}/>
             <Route path='/select-bus' element={<SelectBusComponent/>}/>

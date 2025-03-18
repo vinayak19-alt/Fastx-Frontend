@@ -50,7 +50,7 @@ export const MyBookingsComponent = () => {
           </tr>
         </thead>
         <tbody>
-          {bookings.map((booking, k)=>(<tr key={k}>
+          {bookings.length!==0?(bookings.map((booking, k)=>(<tr key={k}>
             <td>{booking.bookingId}</td>
             <td>{booking.amount}</td>
             <td>{booking.ticketsBooked}</td>
@@ -62,7 +62,7 @@ export const MyBookingsComponent = () => {
               <button className='btn btn-danger custom-btn' onClick={() =>cancelBooking(booking.bookingId)}>Cancel</button>
             </div>
             ):(<div></div>)}
-          </tr>))}
+          </tr>))):(<p>No bookings available</p>)}
         </tbody>
       </table>
     </div>
