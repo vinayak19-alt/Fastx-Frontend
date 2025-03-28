@@ -3,7 +3,14 @@ import BusImage from '../assets/bus_image_background.jpg'; // Import image from 
 
 const LandingPage = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-white text-white">
+
+  <div className="relative w-screen h-[400px]">
+  <img 
+    src={BusImage} 
+    alt="Bus background" 
+    className="w-full h-full object-cover"
+  />
+  <div className="relative min-h-screen flex items-center justify-center bg-white text-white">
       {/* Background Bus Image with Overlay */}
       <div className="absolute inset-0">
         <img 
@@ -31,6 +38,7 @@ const LandingPage = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

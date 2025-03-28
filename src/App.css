@@ -1,8 +1,11 @@
 .footer{
     background-color: #5a4af4;
     text-align: center;
-    width: 98vw;
+    width: 100% !important;
     height: 50px;
+    left: 0 !important;
+    bottom: 0 !important;
+    position: fixed !important;
 }
 .footer p {
     color: white;

@@ -29,7 +29,7 @@ import LandingPage from './components/LandingPage';
 function App() {
   return (
     <div className="App">
-      <ToastContainer/>
+      {/* <ToastContainer/> */}
       <BrowserRouter>
         <Routes>
           <Route index element={<RegisterComponent/>}/>
